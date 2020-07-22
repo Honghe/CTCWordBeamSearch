@@ -148,7 +148,7 @@ class BeamList:
 
     def deletePartialBeams(self, lm):
         "delete beams for which last word is not finished"
-        for (k, v) in self.beams.items():
+        for (k, v) in list(self.beams.items()):
             lastWord = v.textual.wordDev
             if (lastWord != '') and (not lm.isWord(lastWord)):
                 del self.beams[k]
